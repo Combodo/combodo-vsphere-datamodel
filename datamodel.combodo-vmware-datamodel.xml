@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<itop_design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.1">
+  <classes>
+    <class id="Datastore" _delta="define">
+      <parent>cmdbAbstractObject</parent>
+      <properties>
+        <category>bizmodel,searchable,configmgmt</category>
+        <abstract>false</abstract>
+        <key_type>autoincrement</key_type>
+        <db_table>datastore</db_table>
+        <db_key_field>id</db_key_field>
+        <db_final_class_field/>
+        <naming>
+          <attributes>
+            <attribute id="name"/>
+          </attributes>
+        </naming>
+        <style>
+          <icon>assets/img/icons8-datastore.svg</icon>
+        </style>
+        <reconciliation>
+          <attributes>
+            <attribute id="name"/>
+            <attribute id="hypervisor_id"/>
+            <attribute id="hypervisor_name"/>
+            <attribute id="storagesystem_id"/>
+            <attribute id="storagesystem_name"/>
+          </attributes>
+        </reconciliation>
+        <obsolescence>
+          <condition>storagesystem_id_obsolescence_flag</condition>
+        </obsolescence>
+      </properties>
+      <fields>
+        <field id="name" xsi:type="AttributeString">
+          <sql>name</sql>
+          <default_value/>
+          <is_null_allowed>false</is_null_allowed>
+        </field>
+        <field id="uuid" xsi:type="AttributeString">
+          <sql>uuid</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="org_id" xsi:type="AttributeExternalKey">
+          <sql>org_id</sql>
+          <target_class>Organization</target_class>
+          <is_null_allowed>false</is_null_allowed>
+          <on_target_delete>DEL_MANUAL</on_target_delete>
+          <jointype/>
+        </field>
+        <field id="org_name" xsi:type="AttributeExternalField">
+          <extkey_attcode>org_id</extkey_attcode>
+          <target_attcode>name</target_attcode>
+        </field>
+        <field id="type" xsi:type="AttributeEnum">
+          <values>
+            <value id="vmfs">
+              <code>vmfs</code>
+            </value>
+            <value id="nfs">
+              <code>nfs</code>
+            </value>
+            <value id="vsan">
+              <code>vsan</code>
+            </value>
+            <value id="vvol">
+              <code>vvol</code>
+            </value>
+          </values>
+          <sql>type</sql>
+          <default_value>vmfs</default_value>
+          <is_null_allowed>true</is_null_allowed>
+          <display_style>list</display_style>
+        </field>
+        <field id="capacity" xsi:type="AttributeString">
+          <sql>capacity</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="description" xsi:type="AttributeText">
+          <sql>description</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="hypervisor_id" xsi:type="AttributeExternalKey">
+          <sql>hypervisor_id</sql>
+          <target_class>Hypervisor</target_class>
+          <filter><![CDATA[SELECT Hypervisor AS h WHERE h.org_id = :this->org_id]]></filter>
+          <dependencies>
+            <attribute id="org_id"/>
+          </dependencies>
+          <is_null_allowed>true</is_null_allowed>
+          <on_target_delete>DEL_MANUAL</on_target_delete>
+        </field>
+        <field id="hypervisor_name" xsi:type="AttributeExternalField">
+          <extkey_attcode>hypervisor_id</extkey_attcode>
+          <target_attcode>name</target_attcode>
+        </field>
+        <field id="location_id" xsi:type="AttributeExternalKey">
+          <sql>location_id</sql>
+          <target_class>Location</target_class>
+          <filter><![CDATA[SELECT Location AS l WHERE l.org_id = :this->org_id]]></filter>
+          <dependencies>
+            <attribute id="org_id"/>
+          </dependencies>
+          <is_null_allowed>true</is_null_allowed>
+          <on_target_delete>DEL_MANUAL</on_target_delete>
+        </field>
+        <field id="location_name" xsi:type="AttributeExternalField">
+          <extkey_attcode>location_id</extkey_attcode>
+          <target_attcode>name</target_attcode>
+        </field>
+        <field id="storagesystem_id" xsi:type="AttributeExternalKey">
+          <sql>storagesystem_id</sql>
+          <target_class>StorageSystem</target_class>
+          <filter><![CDATA[SELECT StorageSystem AS s WHERE s.org_id = :this->org_id AND s.location_id = :this->location_id]]></filter>
+          <dependencies>
+            <attribute id="org_id"/>
+            <attribute id="location_id"/>
+          </dependencies>
+          <is_null_allowed>true</is_null_allowed>
+          <on_target_delete>DEL_MANUAL</on_target_delete>
+        </field>
+        <field id="storagesystem_name" xsi:type="AttributeExternalField">
+          <extkey_attcode>storagesystem_id</extkey_attcode>
+          <target_attcode>name</target_attcode>
+        </field>
+        <field id="virtualhosts_list" xsi:type="AttributeLinkedSetIndirect">
+          <linked_class>lnkDatastoreToVirtualHost</linked_class>
+          <ext_key_to_me>datastore_id</ext_key_to_me>
+          <count_min>0</count_min>
+          <count_max>0</count_max>
+          <ext_key_to_remote>virtualhost_id</ext_key_to_remote>
+          <duplicates/>
+        </field>
+      </fields>
+      <methods>
+        <method id="DoCheckToWrite">
+          <comment/>
+          <static>false</static>
+          <access>public</access>
+          <type>Overload-DBObject</type>
+          <code><![CDATA[	public function DoCheckToWrite()
+    {
+        parent::DoCheckToWrite();
+
+        // Datastore cannot be hoted by both a hypervisor and a virtual host
+        $iHypervisor = $this->Get('hypervisor_id');
+        if ($iHypervisor > 0) {
+            if ($this->Get('storagesystem_id') > 0) {
+                $this->m_aCheckIssues[] = Dict::S('UI:VirtualizationManagement:Action:CreateOrUpdate:Datastore:PointToHypervisorAndVirtualHost');
+            }
+        }
+	}]]></code>
+        </method>
+      </methods>
+      <presentation>
+        <details>
+          <items>
+            <item id="col:col1">
+              <rank>10</rank>
+              <items>
+                <item id="fieldset:Class:Datastore:baseinfo">
+                  <rank>10</rank>
+                  <items>
+                    <item id="name">
+                      <rank>10</rank>
+                    </item>
+                    <item id="uuid">
+                      <rank>20</rank>
+                    </item>
+                    <item id="org_id">
+                      <rank>30</rank>
+                    </item>
+                    <item id="type">
+                      <rank>40</rank>
+                    </item>
+                    <item id="capacity">
+                      <rank>50</rank>
+                    </item>
+                    <item id="description">
+                      <rank>60</rank>
+                    </item>
+                  </items>
+                </item>
+              </items>
+            </item>
+            <item id="col:col2">
+              <rank>20</rank>
+              <items>
+                <item id="fieldset:Class:Datastore:local">
+                  <rank>10</rank>
+                  <items>
+                   <item id="hypervisor_id">
+                      <rank>10</rank>
+                    </item>
+                  </items>
+                </item>
+                <item id="fieldset:Class:Datastore:network">
+                  <rank>10</rank>
+                  <items>
+                   <item id="location_id">
+                      <rank>10</rank>
+                    </item>
+                    <item id="storagesystem_id">
+                      <rank>20</rank>
+                    </item>
+                  </items>
+                </item>
+              </items>
+            </item>
+            <item id="virtualhosts_list">
+              <rank>30</rank>
+            </item>
+          </items>
+        </details>
+        <list>
+          <items>
+            <item id="org_id">
+              <rank>10</rank>
+            </item>
+            <item id="type">
+              <rank>20</rank>
+            </item>
+            <item id="hypervisor_id">
+              <rank>30</rank>
+            </item>
+            <item id="storagesystem_id">
+              <rank>40</rank>
+            </item>
+          </items>
+        </list>
+        <default_search>
+          <items>
+            <item id="org_id">
+              <rank>10</rank>
+            </item>
+            <item id="type">
+              <rank>20</rank>
+            </item>
+            <item id="hypervisor_id">
+              <rank>30</rank>
+            </item>
+            <item id="location_id">
+              <rank>40</rank>
+            </item>
+            <item id="storagesystem_id">
+              <rank>50</rank>
+            </item>
+          </items>
+        </default_search>
+        <search>
+          <items>
+            <item id="org_id">
+              <rank>10</rank>
+            </item>
+            <item id="type">
+              <rank>20</rank>
+            </item>
+            <item id="hypervisor_id">
+              <rank>30</rank>
+            </item>
+            <item id="location_id">
+              <rank>40</rank>
+            </item>
+            <item id="storagesystem_id">
+              <rank>50</rank>
+            </item>
+          </items>
+        </search>
+        <summary>
+          <items>
+            <item id="type">
+              <rank>10</rank>
+            </item>
+            <item id="hypervisor_id">
+              <rank>20</rank>
+            </item>
+            <item id="storagesystem_id">
+              <rank>30</rank>
+            </item>
+          </items>
+        </summary>
+      </presentation>
+    </class>
+    <class id="Hypervisor" _delta="must_exist">
+      <fields>
+        <field id="datastores_list" xsi:type="AttributeLinkedSet" _delta="define">
+          <linked_class>Datastore</linked_class>
+          <ext_key_to_me>hypervisor_id</ext_key_to_me>
+          <edit_mode>add_remove</edit_mode>
+          <count_min>0</count_min>
+          <count_max>0</count_max>
+          <duplicates/>
+        </field>
+      </fields>
+      <presentation>
+        <details>
+          <items>
+            <item id="datastores_list" _delta="define">
+              <rank>200</rank>
+            </item>
+          </items>
+        </details>
+      </presentation>
+    </class>
+    <class id="StorageSystem" _delta="must_exist">
+      <fields>
+        <field id="datastores_list" xsi:type="AttributeLinkedSet" _delta="define">
+          <linked_class>Datastore</linked_class>
+          <ext_key_to_me>storagesystem_id</ext_key_to_me>
+          <edit_mode>add_remove</edit_mode>
+          <count_min>0</count_min>
+          <count_max>0</count_max>
+          <duplicates/>
+        </field>
+      </fields>
+      <presentation>
+        <details>
+          <items>
+            <item id="datastores_list" _delta="define">
+              <rank>200</rank>
+            </item>
+          </items>
+        </details>
+      </presentation>
+    </class>
+    <class id="VirtualMachine" _delta="must_exist">
+      <fields>
+        <field id="uuid" xsi:type="AttributeString" _delta="define_if_not_exists">
+          <sql>uuid</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+      </fields>
+      <presentation>
+        <details _delta="must_exist">
+          <items>
+            <item id="col:col1" _delta="must_exist">
+              <items>
+                <item id="fieldset:Server:baseinfo" _delta="must_exist">
+                  <items>
+                    <item id="uuid" _delta="define_if_not_exists">
+                      <rank>15</rank>
+                    </item>
+                  </items>
+                </item>
+              </items>
+            </item>
+          </items>
+        </details>
+        <search _delta="must_exist">
+          <items>
+            <item id="uuid" _delta="define_if_not_exists">
+              <rank>15</rank>
+            </item>
+          </items>
+        </search>
+        <list _delta="must_exist">
+          <items>
+            <item id="uuid" _delta="define_if_not_exists">
+              <rank>15</rank>
+            </item>
+          </items>
+        </list>
+      </presentation>
+    </class>
+    <class id="lnkDatastoreToVirtualHost" _delta="define">
+      <parent>cmdbAbstractObject</parent>
+      <properties>
+        <is_link>1</is_link>
+        <category>bizmodel,configmgmt</category>
+        <abstract>false</abstract>
+        <key_type>autoincrement</key_type>
+        <db_table>lnkdatastoretovirtualhost</db_table>
+        <db_key_field>id</db_key_field>
+        <db_final_class_field/>
+        <naming>
+          <attributes>
+            <attribute id="datastore_name"/>
+            <attribute id="virtualhost_name"/>
+          </attributes>
+        </naming>
+        <style>
+          <icon/>
+        </style>
+        <reconciliation>
+          <attributes>
+            <attribute id="datastore_id"/>
+            <attribute id="virtualhost_id"/>
+          </attributes>
+        </reconciliation>
+        <uniqueness_rules>
+          <rule id="no_duplicate">
+            <attributes>
+              <attribute id="datastore_id"/>
+              <attribute id="virtualhost_id"/>
+            </attributes>
+            <filter><![CDATA[]]></filter>
+            <disabled>false</disabled>
+            <is_blocking>true</is_blocking>
+          </rule>
+        </uniqueness_rules>
+      </properties>
+      <fields>
+        <field id="datastore_id" xsi:type="AttributeExternalKey">
+          <sql>datastore_id</sql>
+          <target_class>Datastore</target_class>
+          <is_null_allowed>false</is_null_allowed>
+          <on_target_delete>DEL_AUTO</on_target_delete>
+        </field>
+        <field id="datastore_name" xsi:type="AttributeExternalField">
+          <extkey_attcode>datastore_id</extkey_attcode>
+          <target_attcode>name</target_attcode>
+        </field>
+        <field id="virtualhost_id" xsi:type="AttributeExternalKey">
+          <sql>virtualhost_id</sql>
+          <target_class>VirtualHost</target_class>
+          <is_null_allowed>false</is_null_allowed>
+          <on_target_delete>DEL_AUTO</on_target_delete>
+        </field>
+        <field id="virtualhost_name" xsi:type="AttributeExternalField">
+          <extkey_attcode>virtualhost_id</extkey_attcode>
+          <target_attcode>name</target_attcode>
+        </field>
+      </fields>
+      <methods/>
+      <presentation>
+        <details>
+          <items>
+            <item id="datastore_id">
+              <rank>10</rank>
+            </item>
+            <item id="virtualhost_id">
+              <rank>20</rank>
+            </item>
+          </items>
+        </details>
+        <search>
+          <items>
+            <item id="datastore_id">
+              <rank>10</rank>
+            </item>
+            <item id="virtualhost_id">
+              <rank>20</rank>
+            </item>
+          </items>
+        </search>
+        <list>
+          <items>
+            <item id="datastore_id">
+              <rank>10</rank>
+            </item>
+            <item id="virtualhost_id">
+              <rank>20</rank>
+            </item>
+          </items>
+        </list>
+      </presentation>
+    </class>
+  </classes>
+  <menus>
+    <menu id="ConfigManagementOverview" xsi:type="DashboardMenuNode" _delta="must_exist">
+      <definition>
+        <cells>
+          <cell id="1" _delta="must_exist">
+            <dashlets>
+              <dashlet id="vmware-1" xsi:type="DashletBadge" _delta="define">
+                <rank>4</rank>
+                <class>Datastore</class>
+              </dashlet>
+            </dashlets>
+          </cell>
+        </cells>
+      </definition>
+    </menu>
+  </menus>
+  <user_rights>
+    <groups>
+      <group id="Configuration" _delta="must_exist">
+        <classes>
+          <class id="Datastore" _delta="define"/>
+        </classes>
+      </group>
+    </groups>
+  </user_rights>
+</itop_design>
