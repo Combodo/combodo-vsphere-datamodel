@@ -9,6 +9,7 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:Datastore+' => '',
 	'Class:Datastore/Name' => '%1$s',
 	'Class:Datastore:baseinfo' => 'General Information',
+	'Class:Datastore:date' => 'Dates',
 	'Class:Datastore:local' => 'Local Storage',
 	'Class:Datastore:network' => 'Network Storage',
 	'Class:Datastore/Attribute:finalclass' => 'Class',
@@ -29,8 +30,8 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:Datastore/Attribute:type/Value:vsan+' => '',
 	'Class:Datastore/Attribute:type/Value:vvol' => 'vVol',
 	'Class:Datastore/Attribute:type/Value:vvol+' => 'Virtual Volume',
-	'Class:Datastore/Attribute:capacity' => 'Capacity',
-	'Class:Datastore/Attribute:length+' => 'Total capacity of the Datastore',
+	'Class:Datastore/Attribute:capacity' => 'Capacity (GB)',
+	'Class:Datastore/Attribute:length+' => 'Total capacity of the Datastore, in Giga Bytes',
 	'Class:Datastore/Attribute:description' => 'Description',
 	'Class:Datastore/Attribute:description+' => '',
 	'Class:Datastore/Attribute:hypervisor_id' => 'Hypervisor',
@@ -41,6 +42,10 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:Datastore/Attribute:storagesystem_id+' => 'External storage system. This attribute cannot be filled at the same time as the Hypervisor one',
 	'Class:Datastore/Attribute:virtualhosts_list' => 'Virtual Hosts',
 	'Class:Datastore/Attribute:virtualhosts_list+' => 'Hosts where the datastore is mounted',
+	'Class:Datastore/Attribute:mountingpoint' => 'Mounting point',
+	'Class:Datastore/Attribute:mountingpoint+' => '',
+	'Class:Datastore/Attribute:move2production' => 'Move to production date',
+	'Class:Datastore/Attribute:move2production+' => '',
 ));
 
 //
