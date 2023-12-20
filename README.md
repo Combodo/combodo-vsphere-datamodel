@@ -1,4 +1,4 @@
-# Extension Data model for VMware
+# Extension Data model for vSphere
 
 ## About
 
