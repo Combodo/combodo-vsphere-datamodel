@@ -134,7 +134,17 @@
           <ext_key_to_remote>virtualhost_id</ext_key_to_remote>
           <duplicates/>
         </field>
-      </fields>
+        <field id="mountingpoint" xsi:type="AttributeString">
+          <sql>mountingpoint</sql>
+          <default_value/>
+          <is_null_allowed>false</is_null_allowed>
+        </field>
+        <field id="move2production" xsi:type="AttributeDate">
+          <sql>move2production</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+     </fields>
       <methods>
         <method id="DoCheckToWrite">
           <comment/>
@@ -179,8 +189,11 @@
                     <item id="capacity">
                       <rank>50</rank>
                     </item>
-                    <item id="description">
+                    <item id="mountingpoint">
                       <rank>60</rank>
+                    </item>
+                    <item id="description">
+                      <rank>7l0</rank>
                     </item>
                   </items>
                 </item>
@@ -189,8 +202,16 @@
             <item id="col:col2">
               <rank>20</rank>
               <items>
-                <item id="fieldset:Class:Datastore:local">
+                <item id="fieldset:Class:Datastore:date">
                   <rank>10</rank>
+                  <items>
+                    <item id="move2production">
+                      <rank>10</rank>
+                    </item>
+                  </items>
+                </item>
+                <item id="fieldset:Class:Datastore:local">
+                  <rank>20</rank>
                   <items>
                    <item id="hypervisor_id">
                       <rank>10</rank>
@@ -198,7 +219,7 @@
                   </items>
                 </item>
                 <item id="fieldset:Class:Datastore:network">
-                  <rank>10</rank>
+                  <rank>30</rank>
                   <items>
                    <item id="location_id">
                       <rank>10</rank>
