@@ -16,11 +16,11 @@
 
 SetupWebPage::AddModule(
 	__FILE__, // Path to the current file, all other file names are relative to the directory containing this file
-	'combodo-vmware-datamodel/1.0.0-dev',
+	'combodo-vsphere-datamodel/1.0.0-dev',
 	array(
 		// Identification
 		//
-		'label' => 'Modelization of complementary VMware objects',
+		'label' => 'Modelization of complementary vSphere objects',
 		'category' => 'business',
 
 		// Setup
