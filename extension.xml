@@ -3,7 +3,7 @@
   <extension_code>combodo-vsphere-datamodel</extension_code>
   <version>1.0.0-dev</version>
   <label><![CDATA[Data model for vSphere]]></label>
-  <description><![CDATA[Modelization of complementary vSphere objects ]]></description>
+  <description><![CDATA[Modelization of complementary vSphere objects]]></description>
   <mandatory>false</mandatory>
   <more_info_url></more_info_url>
 </extension>
