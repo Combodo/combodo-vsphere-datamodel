@@ -93,3 +93,10 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:lnkDatastoreToVirtualHost/Attribute:virtualhost_name+' => '',
 ));
 
+//
+// Actions
+//
+
+Dict::Add('EN US', 'English', 'English', array(
+	'UI:VirtualizationManagement:Action:CreateOrUpdate:Datastore:PointToHypervisorAndVirtualHost' => 'A Datastore cannot be attached to both an Hypervisor and a Storage System!',
+));

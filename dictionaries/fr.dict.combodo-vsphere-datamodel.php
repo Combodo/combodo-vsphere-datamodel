@@ -93,3 +93,10 @@ Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:lnkDatastoreToVirtualHost/Attribute:virtualhost_name+' => '',
 ));
 
+//
+// Actions
+//
+
+Dict::Add('FR FR', 'French', 'Français', array(
+	'UI:VirtualizationManagement:Action:CreateOrUpdate:Datastore:PointToHypervisorAndVirtualHost' => 'Un Datastore ne peut être attaché à la fois à un Hyperviseur et à un Système de stockage !',
+));
