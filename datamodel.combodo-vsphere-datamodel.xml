@@ -137,7 +137,7 @@
         <field id="mountingpoint" xsi:type="AttributeString">
           <sql>mountingpoint</sql>
           <default_value/>
-          <is_null_allowed>false</is_null_allowed>
+          <is_null_allowed>true</is_null_allowed>
         </field>
         <field id="move2production" xsi:type="AttributeDate">
           <sql>move2production</sql>
@@ -155,12 +155,9 @@
     {
         parent::DoCheckToWrite();
 
-        // Datastore cannot be hoted by both a hypervisor and a virtual host
-        $iHypervisor = $this->Get('hypervisor_id');
-        if ($iHypervisor > 0) {
-            if ($this->Get('storagesystem_id') > 0) {
-                $this->m_aCheckIssues[] = Dict::S('UI:VirtualizationManagement:Action:CreateOrUpdate:Datastore:PointToHypervisorAndVirtualHost');
-            }
+        // Datastore cannot be hosted by both a hypervisor and a virtual host
+        if (($this->Get('hypervisor_id') > 0) && ($this->Get('storagesystem_id') > 0)) {
+            $this->m_aCheckIssues[] = Dict::S('UI:VirtualizationManagement:Action:CreateOrUpdate:Datastore:PointToHypervisorAndVirtualHost');
         }
 	}]]></code>
         </method>
@@ -193,7 +190,7 @@
                       <rank>60</rank>
                     </item>
                     <item id="description">
-                      <rank>7l0</rank>
+                      <rank>70</rank>
                     </item>
                   </items>
                 </item>
