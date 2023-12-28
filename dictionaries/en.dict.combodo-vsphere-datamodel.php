@@ -53,6 +53,10 @@ Dict::Add('EN US', 'English', 'English', array(
 //
 
 Dict::Add('EN US', 'English', 'English', array(
+	'Class:Hypervisor/Attribute:uuid' => 'UUID',
+	'Class:Hypervisor/Attribute:uuid+' => 'Universal Unique Identifier of the virtual machine',
+	'Class:Hypervisor/Attribute:hostid' => 'vSphere Host ID',
+	'Class:Hypervisor/Attribute:hostid+' => 'vSphere ID of the Hypervisor',
 	'Class:Hypervisor/Attribute:datastores_list' => 'Datastores',
 	'Class:Hypervisor/Attribute:datastores_list+' => 'Datastores using the hypervisor as local storage',
 ));
@@ -73,6 +77,15 @@ Dict::Add('EN US', 'English', 'English', array(
 Dict::Add('EN US', 'English', 'English', array(
 	'Class:VirtualMachine/Attribute:uuid' => 'UUID',
 	'Class:VirtualMachine/Attribute:uuid+' => 'Universal Unique Identifier of the virtual machine',
+));
+
+//
+// Class: Server
+//
+
+Dict::Add('EN US', 'English', 'English', array(
+	'Class:Server/Attribute:hostid' => 'vSphere Host ID',
+	'Class:Server/Attribute:hostid+' => 'vSphere ID of the Server',
 ));
 
 //

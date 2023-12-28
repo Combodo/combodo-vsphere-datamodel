@@ -304,6 +304,16 @@
     </class>
     <class id="Hypervisor" _delta="must_exist">
       <fields>
+        <field id="uuid" xsi:type="AttributeString" _delta="define_if_not_exists">
+          <sql>uuid</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="hostid" xsi:type="AttributeString" _delta="define_if_not_exists">
+          <sql>hostid</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
         <field id="datastores_list" xsi:type="AttributeLinkedSet" _delta="define">
           <linked_class>Datastore</linked_class>
           <ext_key_to_me>hypervisor_id</ext_key_to_me>
@@ -316,6 +326,9 @@
       <presentation>
         <details>
           <items>
+            <item id="uuid" _delta="define_if_not_exists">
+              <rank>15</rank>
+            </item>
             <item id="datastores_list" _delta="define">
               <rank>200</rank>
             </item>
@@ -476,6 +489,15 @@
           </items>
         </list>
       </presentation>
+    </class>
+    <class id="Server" _delta="must_exist">
+      <fields>
+        <field id="hostid" xsi:type="AttributeString" _delta="define_if_not_exists">
+          <sql>hostid</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+      </fields>
     </class>
   </classes>
   <menus>

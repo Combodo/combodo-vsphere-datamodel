@@ -53,6 +53,10 @@ Dict::Add('FR FR', 'French', 'Français', array(
 //
 
 Dict::Add('FR FR', 'French', 'Français', array(
+	'Class:Hypervisor/Attribute:uuid' => 'UUID',
+	'Class:Hypervisor/Attribute:uuid+' => 'Universal Unique Identifier de l\'hyperviseur',
+	'Class:Hypervisor/Attribute:hostid' => 'ID Host vSphere',
+	'Class:Hypervisor/Attribute:hostid+' => 'ID vSphere de l\'hyperviseur',
 	'Class:Hypervisor/Attribute:datastores_list' => 'Datastores',
 	'Class:Hypervisor/Attribute:datastores_list+' => 'Datastores utilisant l\'hyperviseur en tant que stockage local',
 ));
@@ -73,6 +77,15 @@ Dict::Add('FR FR', 'French', 'Français', array(
 Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:VirtualMachine/Attribute:uuid' => 'UUID',
 	'Class:VirtualMachine/Attribute:uuid+' => 'Universal Unique Identifier de la machine virtuelle',
+));
+
+//
+// Class: Server
+//
+
+Dict::Add('FR FR', 'French', 'Français', array(
+	'Class:Server/Attribute:hostid' => 'ID Host vSphere',
+	'Class:Server/Attribute:hostid+' => 'ID vSphere du serveur',
 ));
 
 //
