@@ -17,7 +17,7 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:Datastore/Attribute:name' => 'Name',
 	'Class:Datastore/Attribute:name+' => '',
 	'Class:Datastore/Attribute:uuid' => 'UUID',
-	'Class:Datastore/Attribute:uuid+' => 'Universal Unique Identifier of the Datastore',
+	'Class:Datastore/Attribute:uuid+' => 'Universal Unique IDentifier of the Datastore',
 	'Class:Datastore/Attribute:org_id' => 'Organization',
 	'Class:Datastore/Attribute:org_id+' => 'Organization that the Datastore is attached to',
 	'Class:Datastore/Attribute:type' => 'Type',
@@ -54,7 +54,7 @@ Dict::Add('EN US', 'English', 'English', array(
 
 Dict::Add('EN US', 'English', 'English', array(
 	'Class:Hypervisor/Attribute:uuid' => 'UUID',
-	'Class:Hypervisor/Attribute:uuid+' => 'Universal Unique Identifier of the virtual machine',
+	'Class:Hypervisor/Attribute:uuid+' => 'Universal Unique IDentifier of the virtual machine',
 	'Class:Hypervisor/Attribute:hostid' => 'vSphere Host ID',
 	'Class:Hypervisor/Attribute:hostid+' => 'vSphere ID of the Hypervisor',
 	'Class:Hypervisor/Attribute:datastores_list' => 'Datastores',
@@ -66,8 +66,8 @@ Dict::Add('EN US', 'English', 'English', array(
 //
 
 Dict::Add('EN US', 'English', 'English', array(
-	'Class:Hypervisor/Attribute:datastores_list' => 'Datastores',
-	'Class:Hypervisor/Attribute:datastores_list+' => 'Datastores using the storage system as network storage',
+	'Class:StorageSystem/Attribute:datastores_list' => 'Datastores',
+	'Class:StorageSystem/Attribute:datastores_list+' => 'Datastores using the storage system as network storage',
 ));
 
 //
@@ -76,7 +76,7 @@ Dict::Add('EN US', 'English', 'English', array(
 
 Dict::Add('EN US', 'English', 'English', array(
 	'Class:VirtualMachine/Attribute:uuid' => 'UUID',
-	'Class:VirtualMachine/Attribute:uuid+' => 'Universal Unique Identifier of the virtual machine',
+	'Class:VirtualMachine/Attribute:uuid+' => 'Universal Unique IDentifier of the virtual machine',
 ));
 
 //

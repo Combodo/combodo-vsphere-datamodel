@@ -17,7 +17,7 @@ Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:Datastore/Attribute:name' => 'Nom',
 	'Class:Datastore/Attribute:name+' => '',
 	'Class:Datastore/Attribute:uuid' => 'UUID',
-	'Class:Datastore/Attribute:uuid+' => 'Universal Unique Identifier du Datastore',
+	'Class:Datastore/Attribute:uuid+' => 'Universal Unique IDentifier du Datastore',
 	'Class:Datastore/Attribute:org_id' => 'Organisation',
 	'Class:Datastore/Attribute:org_id+' => 'Organisation à laquelle le Datastore est attaché',
 	'Class:Datastore/Attribute:type' => 'Type',
@@ -54,7 +54,7 @@ Dict::Add('FR FR', 'French', 'Français', array(
 
 Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:Hypervisor/Attribute:uuid' => 'UUID',
-	'Class:Hypervisor/Attribute:uuid+' => 'Universal Unique Identifier de l\'hyperviseur',
+	'Class:Hypervisor/Attribute:uuid+' => 'Universal Unique IDentifier de l\'hyperviseur',
 	'Class:Hypervisor/Attribute:hostid' => 'ID Host vSphere',
 	'Class:Hypervisor/Attribute:hostid+' => 'ID vSphere de l\'hyperviseur',
 	'Class:Hypervisor/Attribute:datastores_list' => 'Datastores',
@@ -66,8 +66,8 @@ Dict::Add('FR FR', 'French', 'Français', array(
 //
 
 Dict::Add('FR FR', 'French', 'Français', array(
-	'Class:Hypervisor/Attribute:datastores_list' => 'Datastores',
-	'Class:Hypervisor/Attribute:datastores_list+' => 'Datastores ustilisant le système de stockage en tant que stockage réseau',
+	'Class:StorageSystem/Attribute:datastores_list' => 'Datastores',
+	'Class:StorageSystem/Attribute:datastores_list+' => 'Datastores ustilisant le système de stockage en tant que stockage réseau',
 ));
 
 //
@@ -76,7 +76,7 @@ Dict::Add('FR FR', 'French', 'Français', array(
 
 Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:VirtualMachine/Attribute:uuid' => 'UUID',
-	'Class:VirtualMachine/Attribute:uuid+' => 'Universal Unique Identifier de la machine virtuelle',
+	'Class:VirtualMachine/Attribute:uuid+' => 'Universal Unique IDentifier de la machine virtuelle',
 ));
 
 //
