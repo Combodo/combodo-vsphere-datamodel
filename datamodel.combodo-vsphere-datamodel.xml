@@ -388,13 +388,6 @@
             </item>
           </items>
         </search>
-        <list _delta="must_exist">
-          <items>
-            <item id="uuid" _delta="define_if_not_exists">
-              <rank>15</rank>
-            </item>
-          </items>
-        </list>
       </presentation>
     </class>
     <class id="lnkDatastoreToVirtualHost" _delta="define">
