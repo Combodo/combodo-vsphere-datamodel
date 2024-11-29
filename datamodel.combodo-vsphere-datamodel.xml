@@ -58,8 +58,20 @@
             <value id="vmfs">
               <code>vmfs</code>
             </value>
+            <value id="vmfs5">
+              <code>vmfs5</code>
+            </value>
+            <value id="vmfs6">
+              <code>vmfs6</code>
+            </value>
             <value id="nfs">
               <code>nfs</code>
+            </value>
+            <value id="nfs3">
+              <code>nfs3</code>
+            </value>
+            <value id="nfs41">
+              <code>nfs41</code>
             </value>
             <value id="vsan">
               <code>vsan</code>
