@@ -77,6 +77,8 @@ Dict::Add('EN US', 'English', 'English', array(
 Dict::Add('EN US', 'English', 'English', array(
 	'Class:VirtualMachine/Attribute:uuid' => 'UUID',
 	'Class:VirtualMachine/Attribute:uuid+' => 'Universal Unique IDentifier of the virtual machine',
+    'Class:VirtualMachine/Attribute:datastores_list' => 'Datastores',
+    'Class:VirtualMachine/Attribute:datastores_list+' => 'Datastores used by the virtual machine',
 ));
 
 //
@@ -102,8 +104,26 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:lnkDatastoreToVirtualHost/Attribute:datastore_name+' => '',
 	'Class:lnkDatastoreToVirtualHost/Attribute:virtualhost_id' => 'Virtual Host',
 	'Class:lnkDatastoreToVirtualHost/Attribute:virtualhost_id+' => '',
-	'Class:lnkDatastoreToVirtualHost/Attribute:virtualhost_name' => 'Virtual Host nmae',
+	'Class:lnkDatastoreToVirtualHost/Attribute:virtualhost_name' => 'Virtual Host name',
 	'Class:lnkDatastoreToVirtualHost/Attribute:virtualhost_name+' => '',
+));
+
+//
+// Class: lnkDatastoreToVirtualMachine
+//
+
+Dict::Add('EN US', 'English', 'English', array(
+    'Class:lnkDatastoreToVirtualMachine' => 'Link Datastore / Virtual Machine',
+    'Class:lnkDatastoreToVirtualMachine+' => '',
+    'Class:lnkDatastoreToVirtualMachine/Name' => '%1$s / %2$s',
+    'Class:lnkDatastoreToVirtualMachine/Attribute:datastore_id' => 'Datastore',
+    'Class:lnkDatastoreToVirtualMachine/Attribute:datastore_id+' => '',
+    'Class:lnkDatastoreToVirtualMachine/Attribute:datastore_name' => 'Datastore name',
+    'Class:lnkDatastoreToVirtualMachine/Attribute:datastore_name+' => '',
+    'Class:lnkDatastoreToVirtualMachine/Attribute:virtualmachine_id' => 'Virtual Machine',
+    'Class:lnkDatastoreToVirtualMachine/Attribute:virtualmachine_id+' => '',
+    'Class:lnkDatastoreToVirtualMachine/Attribute:virtualhost_name' => 'Virtual Machine name',
+    'Class:lnkDatastoreToVirtualMachine/Attribute:virtualhost_name+' => '',
 ));
 
 //

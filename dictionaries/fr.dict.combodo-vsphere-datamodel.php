@@ -67,7 +67,7 @@ Dict::Add('FR FR', 'French', 'Français', array(
 
 Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:StorageSystem/Attribute:datastores_list' => 'Datastores',
-	'Class:StorageSystem/Attribute:datastores_list+' => 'Datastores ustilisant le système de stockage en tant que stockage réseau',
+	'Class:StorageSystem/Attribute:datastores_list+' => 'Datastores utilisant le système de stockage en tant que stockage réseau',
 ));
 
 //
@@ -77,6 +77,8 @@ Dict::Add('FR FR', 'French', 'Français', array(
 Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:VirtualMachine/Attribute:uuid' => 'UUID',
 	'Class:VirtualMachine/Attribute:uuid+' => 'Universal Unique IDentifier de la machine virtuelle',
+    'Class:VirtualMachine/Attribute:datastores_list' => 'Datastores',
+    'Class:VirtualMachine/Attribute:datastores_list+' => 'Datastores utilisés par la machine virtuelle',
 ));
 
 //
@@ -104,6 +106,24 @@ Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:lnkDatastoreToVirtualHost/Attribute:virtualhost_id+' => '',
 	'Class:lnkDatastoreToVirtualHost/Attribute:virtualhost_name' => 'Nom de l\'Hôte Virtuel',
 	'Class:lnkDatastoreToVirtualHost/Attribute:virtualhost_name+' => '',
+));
+
+//
+// Class: lnkDatastoreToVirtualMachine
+//
+
+Dict::Add('FR FR', 'French', 'Français', array(
+    'Class:lnkDatastoreToVirtualMachine' => 'Lien Datastore / Machine Virtuelle',
+    'Class:lnkDatastoreToVirtualMachine+' => '',
+    'Class:lnkDatastoreToVirtualMachine/Name' => '%1$s / %2$s',
+    'Class:lnkDatastoreToVirtualMachine/Attribute:datastore_id' => 'Datastore',
+    'Class:lnkDatastoreToVirtualMachine/Attribute:datastore_id+' => '',
+    'Class:lnkDatastoreToVirtualMachine/Attribute:datastore_name' => 'Nom du Datastore',
+    'Class:lnkDatastoreToVirtualMachine/Attribute:datastore_name+' => '',
+    'Class:lnkDatastoreToVirtualMachine/Attribute:virtualmachine_id' => 'Machine Virtuelle',
+    'Class:lnkDatastoreToVirtualMachine/Attribute:virtualmachine_id+' => '',
+    'Class:lnkDatastoreToVirtualMachine/Attribute:virtualhost_name' => 'Nom de la Machine Virtuelle',
+    'Class:lnkDatastoreToVirtualMachine/Attribute:virtualhost_name+' => '',
 ));
 
 //
