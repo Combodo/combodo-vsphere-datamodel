@@ -54,6 +54,8 @@ Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:Datastore/Attribute:mountingpoint+' => '',
 	'Class:Datastore/Attribute:move2production' => 'Date de mise en production',
 	'Class:Datastore/Attribute:move2production+' => '',
+    'Class:Datastore/Attribute:virtualmachines_list' => 'Machines Virtuelles',
+    'Class:Datastore/Attribute:virtualmachines_list+' => 'Liste de toutes les machines virtuelles utilisant le datastore',
 ));
 
 //

@@ -54,6 +54,8 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:Datastore/Attribute:mountingpoint+' => '',
 	'Class:Datastore/Attribute:move2production' => 'Move to production date',
 	'Class:Datastore/Attribute:move2production+' => '',
+    'Class:Datastore/Attribute:virtualmachines_list' => 'Virtual Machines',
+    'Class:Datastore/Attribute:virtualmachines_list+' => 'List of all virtual machines using the datastore',
 ));
 
 //
@@ -112,7 +114,7 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:lnkDatastoreToVirtualHost/Attribute:datastore_name+' => '',
 	'Class:lnkDatastoreToVirtualHost/Attribute:virtualhost_id' => 'Virtual Host',
 	'Class:lnkDatastoreToVirtualHost/Attribute:virtualhost_id+' => '',
-	'Class:lnkDatastoreToVirtualHost/Attribute:virtualhost_name' => 'Virtual Host name',
+	'Class:lnkDatastoreToVirtualHost/Attribute:virtualhost_name' => 'sHost name',
 	'Class:lnkDatastoreToVirtualHost/Attribute:virtualhost_name+' => '',
 ));
 
