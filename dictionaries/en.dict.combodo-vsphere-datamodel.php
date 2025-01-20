@@ -114,7 +114,7 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:lnkDatastoreToVirtualHost/Attribute:datastore_name+' => '',
 	'Class:lnkDatastoreToVirtualHost/Attribute:virtualhost_id' => 'Virtual Host',
 	'Class:lnkDatastoreToVirtualHost/Attribute:virtualhost_id+' => '',
-	'Class:lnkDatastoreToVirtualHost/Attribute:virtualhost_name' => 'sHost name',
+	'Class:lnkDatastoreToVirtualHost/Attribute:virtualhost_name' => 'Virtual Host name',
 	'Class:lnkDatastoreToVirtualHost/Attribute:virtualhost_name+' => '',
 ));
 
