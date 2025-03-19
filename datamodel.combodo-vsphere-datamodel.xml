@@ -395,6 +395,23 @@
           <ext_key_to_remote>datastore_id</ext_key_to_remote>
           <duplicates/>
         </field>
+        <field id="power_state" xsi:type="AttributeEnum" _delta="define_if_not_exists">
+          <values>
+            <value id="on">
+              <code>on</code>
+            </value>
+            <value id="off">
+              <code>off</code>
+            </value>
+            <value id="suspended">
+              <code>suspended</code>
+            </value>
+          </values>
+          <sql>power_state</sql>
+          <default_value>on</default_value>
+          <is_null_allowed>true</is_null_allowed>
+          <display_style>radio_horizontal</display_style>
+        </field>
       </fields>
       <presentation>
         <details _delta="must_exist">
@@ -409,6 +426,9 @@
                     <item id="uuid" _delta="define_if_not_exists">
                       <rank>15</rank>
                     </item>
+                    <item id="power_state" _delta="define_if_not_exists">
+                      <rank>35</rank>
+                    </item>
                   </items>
                 </item>
               </items>
@@ -419,6 +439,9 @@
           <items>
             <item id="uuid" _delta="define_if_not_exists">
               <rank>15</rank>
+            </item>
+            <item id="power_state" _delta="define_if_not_exists">
+              <rank>35</rank>
             </item>
           </items>
         </search>

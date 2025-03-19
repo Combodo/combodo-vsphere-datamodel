@@ -89,6 +89,14 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:VirtualMachine/Attribute:uuid+' => 'Universal Unique IDentifier of the virtual machine',
     'Class:VirtualMachine/Attribute:datastores_list' => 'Datastores',
     'Class:VirtualMachine/Attribute:datastores_list+' => 'Datastores used by the virtual machine',
+    'Class:VirtualMachine/Attribute:power_state' => 'Power state',
+    'Class:VirtualMachine/Attribute:power_state+' => '',
+    'Class:VirtualMachine/Attribute:power_state/Value:on' => 'On',
+    'Class:VirtualMachine/Attribute:power_state/Value:on+' => '',
+    'Class:VirtualMachine/Attribute:power_state/Value:off' => 'Off',
+    'Class:VirtualMachine/Attribute:power_state/Value:off+' => '',
+    'Class:VirtualMachine/Attribute:power_state/Value:suspended' => 'Suspended',
+    'Class:VirtualMachine/Attribute:power_state/Value:suspended+' => '',
 ));
 
 //
