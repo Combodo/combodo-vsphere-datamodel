@@ -59,6 +59,15 @@ Dict::Add('FR FR', 'French', 'Français', array(
 ));
 
 //
+// Class: VirtualHost
+//
+
+Dict::Add('FR FR', 'French', 'Français', array(
+    'Class:VirtualHost/Attribute:remote_datastores_list' => 'Datastores distants',
+    'Class:VirtualHost/Attribute:remote_datastores_list+' => 'Datastores situés à distance sur le réseau',
+));
+
+//
 // Class: Hypervisor
 //
 
@@ -67,8 +76,8 @@ Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:Hypervisor/Attribute:uuid+' => 'Universal Unique IDentifier de l\'hyperviseur',
 	'Class:Hypervisor/Attribute:hostid' => 'ID Host vSphere',
 	'Class:Hypervisor/Attribute:hostid+' => 'ID vSphere de l\'hyperviseur',
-	'Class:Hypervisor/Attribute:datastores_list' => 'Datastores',
-	'Class:Hypervisor/Attribute:datastores_list+' => 'Datastores utilisant l\'hyperviseur en tant que stockage local',
+	'Class:Hypervisor/Attribute:local_datastores_list' => 'Datastores locaux',
+	'Class:Hypervisor/Attribute:local_datastores_list+' => 'Datastores situés sur le serveur hébergeant l\'hyperviseur',
 ));
 
 //

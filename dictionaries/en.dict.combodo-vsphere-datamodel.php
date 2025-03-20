@@ -59,6 +59,15 @@ Dict::Add('EN US', 'English', 'English', array(
 ));
 
 //
+// Class: VirtualHost
+//
+
+Dict::Add('EN US', 'English', 'English', array(
+    'Class:VirtualHost/Attribute:remote_datastores_list' => 'Remote Datastores',
+    'Class:VirtualHost/Attribute:remote_datastores_list+' => 'Datastores located remotely accross the network',
+));
+
+//
 // Class: Hypervisor
 //
 
@@ -67,8 +76,8 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:Hypervisor/Attribute:uuid+' => 'Universal Unique IDentifier of the virtual machine',
 	'Class:Hypervisor/Attribute:hostid' => 'vSphere Host ID',
 	'Class:Hypervisor/Attribute:hostid+' => 'vSphere ID of the Hypervisor',
-	'Class:Hypervisor/Attribute:datastores_list' => 'Datastores',
-	'Class:Hypervisor/Attribute:datastores_list+' => 'Datastores using the hypervisor as local storage',
+	'Class:Hypervisor/Attribute:local_datastores_list' => 'Local Datastores',
+	'Class:Hypervisor/Attribute:local_datastores_list+' => 'Datastores located on the server hosting the hypervisor',
 ));
 
 //

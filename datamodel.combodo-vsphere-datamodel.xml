@@ -325,6 +325,18 @@
         </summary>
       </presentation>
     </class>
+    <class id="VirtualHost" _delta="must_exist">
+      <fields>
+        <field id="remote_datastores_list" xsi:type="AttributeLinkedSetIndirect" _delta="define">
+          <linked_class>lnkDatastoreToVirtualHost</linked_class>
+          <ext_key_to_me>virtualhost_id</ext_key_to_me>
+          <count_min>0</count_min>
+          <count_max>0</count_max>
+          <ext_key_to_remote>datastore_id</ext_key_to_remote>
+          <duplicates/>
+        </field>
+      </fields>
+    </class>
     <class id="Hypervisor" _delta="must_exist">
       <fields>
         <field id="uuid" xsi:type="AttributeString" _delta="define_if_not_exists">
@@ -337,7 +349,7 @@
           <default_value/>
           <is_null_allowed>true</is_null_allowed>
         </field>
-        <field id="datastores_list" xsi:type="AttributeLinkedSet" _delta="define">
+        <field id="local_datastores_list" xsi:type="AttributeLinkedSet" _delta="define">
           <linked_class>Datastore</linked_class>
           <ext_key_to_me>hypervisor_id</ext_key_to_me>
           <edit_mode>add_remove</edit_mode>
@@ -347,12 +359,26 @@
         </field>
       </fields>
       <presentation>
-        <details>
+        <details _delta="must_exist">
           <items>
             <item id="uuid" _delta="define_if_not_exists">
               <rank>15</rank>
             </item>
-            <item id="datastores_list" _delta="define">
+            <item id="local_datastores_list" _delta="define">
+              <rank>200</rank>
+            </item>
+            <item id="remote_datastores_list" _delta="define">
+              <rank>210</rank>
+            </item>
+          </items>
+        </details>
+      </presentation>
+    </class>
+    <class id="Farm" _delta="must_exist">
+      <presentation>
+        <details _delta="must_exist">
+          <items>
+            <item id="remote_datastores_list" _delta="define">
               <rank>200</rank>
             </item>
           </items>
@@ -371,7 +397,7 @@
         </field>
       </fields>
       <presentation>
-        <details>
+        <details _delta="must_exist">
           <items>
             <item id="datastores_list" _delta="define">
               <rank>200</rank>
