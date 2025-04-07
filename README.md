@@ -5,7 +5,7 @@
 Next to the virtualization objects contained within 
 [iTop's default datamodel](https://www.itophub.io/wiki/page?id=3_1_0:datamodel:itop-virtualization-mgmt), 
 this extension brings new virtualization classes (like datastores) and enriches existing ones by 
-adding new attributes to them (like uuid to VMs).
+adding new attributes to them (like uuid or power_state to VMs).
 
 For an optimal usage, this extension should be used with the 
 [Data collector for vSphere](https://www.itophub.io/wiki/page?id=extensions:vsphere-data-collector) that 
