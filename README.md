@@ -1,3 +1,4 @@
+[![Translation status](https://translate.combodo.com/widget/combodo-vsphere-datamodel/svg-badge.svg)](https://translate.combodo.com/engage/combodo-vsphere-datamodel/)
 # Extension Data model for vSphere
 
 ## About
