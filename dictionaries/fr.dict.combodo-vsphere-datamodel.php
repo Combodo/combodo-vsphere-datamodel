@@ -8,6 +8,7 @@
  */
 /**
  * @author Automated user <github-apps-account@combodo.com>
+ * @author 
  *
  */
 Dict::Add('FR FR', 'French', 'Français', [
