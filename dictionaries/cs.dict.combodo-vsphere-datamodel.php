@@ -5,23 +5,23 @@
 //
 
 Dict::Add('CS CZ', 'Czech', 'Čeština', array(
-	'Class:Datastore' => 'Datastore',
+	'Class:Datastore' => 'Datové úložiště',
 	'Class:Datastore+' => '',
 	'Class:Datastore/Name' => '%1$s',
-	'Class:Datastore:baseinfo' => 'General Information',
-	'Class:Datastore:date' => 'Dates',
-	'Class:Datastore:local' => 'Local Storage',
-	'Class:Datastore:network' => 'Network Storage',
-	'Class:Datastore/Attribute:finalclass' => 'Class',
+	'Class:Datastore:baseinfo' => 'Obecné informace',
+	'Class:Datastore:date' => 'Data',
+	'Class:Datastore:local' => 'Lokální Úložiště',
+	'Class:Datastore:network' => 'Síťové Úložiště',
+	'Class:Datastore/Attribute:finalclass' => 'Třída',
 	'Class:Datastore/Attribute:finalclass+' => '',
-	'Class:Datastore/Attribute:name' => 'Name',
+	'Class:Datastore/Attribute:name' => 'Název',
 	'Class:Datastore/Attribute:name+' => '',
 	'Class:Datastore/Attribute:uuid' => 'UUID',
-	'Class:Datastore/Attribute:uuid+' => 'Universal Unique IDentifier of the Datastore',
-	'Class:Datastore/Attribute:org_id' => 'Organization',
-	'Class:Datastore/Attribute:org_id+' => 'Organization that the Datastore is attached to',
-	'Class:Datastore/Attribute:type' => 'Type',
-	'Class:Datastore/Attribute:type+' => 'File system that the datastore uses',
+	'Class:Datastore/Attribute:uuid+' => 'Universální a Unikátní IDentifikátor úložiště',
+	'Class:Datastore/Attribute:org_id' => 'Organizace',
+	'Class:Datastore/Attribute:org_id+' => 'Organizace ke které je Úložiště přiřazeno',
+	'Class:Datastore/Attribute:type' => 'Typ',
+	'Class:Datastore/Attribute:type+' => 'File system datového úložiště',
 	'Class:Datastore/Attribute:type/Value:vmfs' => 'VMFS',
 	'Class:Datastore/Attribute:type/Value:vmfs+' => 'Virtual Machine File System',
     'Class:Datastore/Attribute:type/Value:vmfs5' => 'VMFS 5',
@@ -38,24 +38,24 @@ Dict::Add('CS CZ', 'Czech', 'Čeština', array(
 	'Class:Datastore/Attribute:type/Value:vsan+' => '',
 	'Class:Datastore/Attribute:type/Value:vvol' => 'vVol',
 	'Class:Datastore/Attribute:type/Value:vvol+' => 'Virtual Volume',
-	'Class:Datastore/Attribute:capacity' => 'Capacity (GB)',
-	'Class:Datastore/Attribute:length+' => 'Total capacity of the Datastore, in Giga Bytes',
-	'Class:Datastore/Attribute:description' => 'Description',
+	'Class:Datastore/Attribute:capacity' => 'Kapacita (GB)',
+	'Class:Datastore/Attribute:length+' => 'Celková kapacita Datové úložiště, v Giga Bytech',
+	'Class:Datastore/Attribute:description' => 'Další informace',
 	'Class:Datastore/Attribute:description+' => '',
 	'Class:Datastore/Attribute:hypervisor_id' => 'Hypervisor',
 	'Class:Datastore/Attribute:hypervisor_id+' => 'Hypervisor used for the local storage. This attribute cannot be filled at the same time as the Storage System one',
-	'Class:Datastore/Attribute:location_id' => 'Location',
-	'Class:Datastore/Attribute:location_id+' => 'Location of the storage system',
-	'Class:Datastore/Attribute:storagesystem_id' => 'Storage System',
-	'Class:Datastore/Attribute:storagesystem_id+' => 'External storage system. This attribute cannot be filled at the same time as the Hypervisor one',
-	'Class:Datastore/Attribute:virtualhosts_list' => 'Virtual Hosts',
+	'Class:Datastore/Attribute:location_id' => 'Umístění',
+	'Class:Datastore/Attribute:location_id+' => 'Umístění úložiště',
+	'Class:Datastore/Attribute:storagesystem_id' => 'Úložný systém',
+	'Class:Datastore/Attribute:storagesystem_id+' => 'Externí úložný systém. Tento atribut nelze vyplnit současně s atributem Úložiště Hypervisoru.',
+	'Class:Datastore/Attribute:virtualhosts_list' => 'Virtuální Hosti',
 	'Class:Datastore/Attribute:virtualhosts_list+' => 'Hosts where the datastore is mounted',
-	'Class:Datastore/Attribute:mountingpoint' => 'Mounting point',
+	'Class:Datastore/Attribute:mountingpoint' => 'Bod připojení',
 	'Class:Datastore/Attribute:mountingpoint+' => '',
-	'Class:Datastore/Attribute:move2production' => 'Move to production date',
+	'Class:Datastore/Attribute:move2production' => 'Datum uvedení do produkce',
 	'Class:Datastore/Attribute:move2production+' => '',
-    'Class:Datastore/Attribute:virtualmachines_list' => 'Virtual Machines',
-    'Class:Datastore/Attribute:virtualmachines_list+' => 'List of all virtual machines using the datastore',
+    'Class:Datastore/Attribute:virtualmachines_list' => 'Virtuální servery',
+    'Class:Datastore/Attribute:virtualmachines_list+' => 'Výpis všech virtuálních serverů využívajících toto datové úložiště',
 ));
 
 //
@@ -63,8 +63,8 @@ Dict::Add('CS CZ', 'Czech', 'Čeština', array(
 //
 
 Dict::Add('CS CZ', 'Czech', 'Čeština', array(
-    'Class:VirtualHost/Attribute:remote_datastores_list' => 'Remote Datastores',
-    'Class:VirtualHost/Attribute:remote_datastores_list+' => 'Datastores located remotely accross the network',
+    'Class:VirtualHost/Attribute:remote_datastores_list' => 'Vzdálená Datová úložiště',
+    'Class:VirtualHost/Attribute:remote_datastores_list+' => 'Datové úložiště připojená prostřednictvím sítě',
 ));
 
 //
@@ -73,11 +73,11 @@ Dict::Add('CS CZ', 'Czech', 'Čeština', array(
 
 Dict::Add('CS CZ', 'Czech', 'Čeština', array(
 	'Class:Hypervisor/Attribute:uuid' => 'UUID',
-	'Class:Hypervisor/Attribute:uuid+' => 'Universal Unique IDentifier of the virtual machine',
+	'Class:Hypervisor/Attribute:uuid+' => 'Universální a Unikátní IDentifikátor Virtuálního serveru',
 	'Class:Hypervisor/Attribute:hostid' => 'vSphere Host ID',
-	'Class:Hypervisor/Attribute:hostid+' => 'vSphere ID of the Hypervisor',
-	'Class:Hypervisor/Attribute:local_datastores_list' => 'Local Datastores',
-	'Class:Hypervisor/Attribute:local_datastores_list+' => 'Datastores located on the server hosting the hypervisor',
+	'Class:Hypervisor/Attribute:hostid+' => 'vSphere ID Hypervisoru',
+	'Class:Hypervisor/Attribute:local_datastores_list' => 'Lokální Datová úložiště',
+	'Class:Hypervisor/Attribute:local_datastores_list+' => 'Datová úložiště umístěná na serveru, který slouží jako Hypervisor',
 ));
 
 //
@@ -85,8 +85,8 @@ Dict::Add('CS CZ', 'Czech', 'Čeština', array(
 //
 
 Dict::Add('CS CZ', 'Czech', 'Čeština', array(
-	'Class:StorageSystem/Attribute:datastores_list' => 'Datastores',
-	'Class:StorageSystem/Attribute:datastores_list+' => 'Datastores using the storage system as network storage',
+	'Class:StorageSystem/Attribute:datastores_list' => 'Datová úložiště',
+	'Class:StorageSystem/Attribute:datastores_list+' => 'Datová úložiště využívající síťová úložiště',
 ));
 
 //
@@ -96,15 +96,15 @@ Dict::Add('CS CZ', 'Czech', 'Čeština', array(
 Dict::Add('CS CZ', 'Czech', 'Čeština', array(
 	'Class:VirtualMachine/Attribute:uuid' => 'UUID',
 	'Class:VirtualMachine/Attribute:uuid+' => 'Universal Unique IDentifier of the virtual machine',
-    'Class:VirtualMachine/Attribute:datastores_list' => 'Datastores',
-    'Class:VirtualMachine/Attribute:datastores_list+' => 'Datastores used by the virtual machine',
-    'Class:VirtualMachine/Attribute:power_state' => 'Power state',
+    'Class:VirtualMachine/Attribute:datastores_list' => 'Datová úložiště',
+    'Class:VirtualMachine/Attribute:datastores_list+' => 'Datová úložiště využívaná virtuálním serverem',
+    'Class:VirtualMachine/Attribute:power_state' => 'Stav napájení',
     'Class:VirtualMachine/Attribute:power_state+' => '',
-    'Class:VirtualMachine/Attribute:power_state/Value:on' => 'On',
+    'Class:VirtualMachine/Attribute:power_state/Value:on' => 'Zapnuto',
     'Class:VirtualMachine/Attribute:power_state/Value:on+' => '',
-    'Class:VirtualMachine/Attribute:power_state/Value:off' => 'Off',
+    'Class:VirtualMachine/Attribute:power_state/Value:off' => 'Vypnuto',
     'Class:VirtualMachine/Attribute:power_state/Value:off+' => '',
-    'Class:VirtualMachine/Attribute:power_state/Value:suspended' => 'Suspended',
+    'Class:VirtualMachine/Attribute:power_state/Value:suspended' => 'Pozastavený',
     'Class:VirtualMachine/Attribute:power_state/Value:suspended+' => '',
 ));
 
@@ -114,7 +114,7 @@ Dict::Add('CS CZ', 'Czech', 'Čeština', array(
 
 Dict::Add('CS CZ', 'Czech', 'Čeština', array(
 	'Class:Server/Attribute:hostid' => 'vSphere Host ID',
-	'Class:Server/Attribute:hostid+' => 'vSphere ID of the Server',
+	'Class:Server/Attribute:hostid+' => 'vSphere ID Serveru',
 ));
 
 //
@@ -125,9 +125,9 @@ Dict::Add('CS CZ', 'Czech', 'Čeština', array(
 	'Class:lnkDatastoreToVirtualHost' => 'Link Datastore / Virtual Host',
 	'Class:lnkDatastoreToVirtualHost+' => '',
 	'Class:lnkDatastoreToVirtualHost/Name' => '%1$s / %2$s',
-	'Class:lnkDatastoreToVirtualHost/Attribute:datastore_id' => 'Datastore',
+	'Class:lnkDatastoreToVirtualHost/Attribute:datastore_id' => 'Datové úložiště',
 	'Class:lnkDatastoreToVirtualHost/Attribute:datastore_id+' => '',
-	'Class:lnkDatastoreToVirtualHost/Attribute:datastore_name' => 'Datastore name',
+	'Class:lnkDatastoreToVirtualHost/Attribute:datastore_name' => 'Název datového úložiště',
 	'Class:lnkDatastoreToVirtualHost/Attribute:datastore_name+' => '',
 	'Class:lnkDatastoreToVirtualHost/Attribute:virtualhost_id' => 'Virtual Host',
 	'Class:lnkDatastoreToVirtualHost/Attribute:virtualhost_id+' => '',
@@ -140,16 +140,16 @@ Dict::Add('CS CZ', 'Czech', 'Čeština', array(
 //
 
 Dict::Add('CS CZ', 'Czech', 'Čeština', array(
-    'Class:lnkDatastoreToVirtualMachine' => 'Link Datastore / Virtual Machine',
+    'Class:lnkDatastoreToVirtualMachine' => 'Napojení datového úložiště / Virtuálního serveru',
     'Class:lnkDatastoreToVirtualMachine+' => '',
     'Class:lnkDatastoreToVirtualMachine/Name' => '%1$s / %2$s',
-    'Class:lnkDatastoreToVirtualMachine/Attribute:datastore_id' => 'Datastore',
+    'Class:lnkDatastoreToVirtualMachine/Attribute:datastore_id' => 'Datové úložiště',
     'Class:lnkDatastoreToVirtualMachine/Attribute:datastore_id+' => '',
-    'Class:lnkDatastoreToVirtualMachine/Attribute:datastore_name' => 'Datastore name',
+    'Class:lnkDatastoreToVirtualMachine/Attribute:datastore_name' => 'Název datového úložiště',
     'Class:lnkDatastoreToVirtualMachine/Attribute:datastore_name+' => '',
-    'Class:lnkDatastoreToVirtualMachine/Attribute:virtualmachine_id' => 'Virtual Machine',
+    'Class:lnkDatastoreToVirtualMachine/Attribute:virtualmachine_id' => 'Virtuální server',
     'Class:lnkDatastoreToVirtualMachine/Attribute:virtualmachine_id+' => '',
-    'Class:lnkDatastoreToVirtualMachine/Attribute:virtualhost_name' => 'Virtual Machine name',
+    'Class:lnkDatastoreToVirtualMachine/Attribute:virtualhost_name' => 'Název Virtuálního serveru',
     'Class:lnkDatastoreToVirtualMachine/Attribute:virtualhost_name+' => '',
 ));
 
@@ -158,5 +158,5 @@ Dict::Add('CS CZ', 'Czech', 'Čeština', array(
 //
 
 Dict::Add('CS CZ', 'Czech', 'Čeština', array(
-	'UI:VirtualizationManagement:Action:CreateOrUpdate:Datastore:PointToHypervisorAndVirtualHost' => 'A Datastore cannot be attached to both an Hypervisor and a Storage System!',
+	'UI:VirtualizationManagement:Action:CreateOrUpdate:Datastore:PointToHypervisorAndVirtualHost' => 'Datové úložiště nemůže být připojeno k Hypervisoru a zároveň i k Úložnému systému',
 ));
