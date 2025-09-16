@@ -475,12 +475,30 @@
           <values>
             <value id="on">
               <code>on</code>
+              <rank>10</rank>
+              <style>
+                <main_color>hsla(88, 50.2%, 52.7%, 1)</main_color>
+                <complementary_color>hsla(0, 0%, 100%, 1)</complementary_color>
+                <decoration_classes/>
+              </style>
             </value>
             <value id="off">
               <code>off</code>
+              <rank>20</rank>
+              <style>
+                <main_color>hsla(209, 23.7%, 74.3%, 1)</main_color>
+                <complementary_color>hsla(0, 0%, 100%, 1)</complementary_color>
+                <decoration_classes/>
+              </style>
             </value>
             <value id="suspended">
               <code>suspended</code>
+              <rank>30</rank>
+              <style>
+                <main_color>hsla(29.65, 100%, 50%, 1)</main_color>
+                <complementary_color>hsla(0, 0%, 100%, 1)</complementary_color>
+                <decoration_classes/>
+              </style>
             </value>
           </values>
           <sql>power_state</sql>
