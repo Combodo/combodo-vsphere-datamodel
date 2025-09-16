@@ -56,6 +56,16 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:Datastore/Attribute:move2production+' => '',
     'Class:Datastore/Attribute:virtualmachines_list' => 'Virtual Machines',
     'Class:Datastore/Attribute:virtualmachines_list+' => 'List of all virtual machines using the datastore',
+    'Class:Datastore/Attribute:status' => 'Status',
+    'Class:Datastore/Attribute:status+' => '',
+    'Class:Datastore/Attribute:status/Value:implementation' => 'implementation',
+    'Class:Datastore/Attribute:status/Value:implementation+' => 'implementation',
+    'Class:Datastore/Attribute:status/Value:obsolete' => 'obsolete',
+    'Class:Datastore/Attribute:status/Value:obsolete+' => 'obsolete',
+    'Class:Datastore/Attribute:status/Value:production' => 'production',
+    'Class:Datastore/Attribute:status/Value:production+' => 'production',
+    'Class:Datastore/Attribute:status/Value:stock' => 'stock',
+    'Class:Datastore/Attribute:status/Value:stock+' => 'stock',
 ));
 
 //
