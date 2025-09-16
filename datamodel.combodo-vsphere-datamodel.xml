@@ -190,6 +190,16 @@
           <display_style>list</display_style>
         </field>
      </fields>
+      <relations>
+        <relation id="impacts">
+          <neighbours>
+            <neighbour id="virtualmachines">
+              <attribute>virtualmachines_list</attribute>
+              <direction>both</direction>
+            </neighbour>
+          </neighbours>
+        </relation>
+      </relations>
       <methods>
         <method id="DoCheckToWrite">
           <comment/>
